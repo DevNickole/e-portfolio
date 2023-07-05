@@ -2,7 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --backgroundcolor: rgb(12, 12, 12);
+  --main-backgroundcolor: #0b0b0c;
+  --secondarycolor: #00c6c2;
+  --tercolor01: rgb(211, 251, 216);
+  --tercolor02: #d3fbd8;
 }
 html {
   scroll-behavior: smooth;
@@ -11,15 +14,19 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   color: white;
-  background-color: var(--backgroundcolor);
+  background-color: var(--main-backgroundcolor);
 }
 header {
-  background-color: rgb(172, 28, 28);
-  height: 80px;
-  padding: 8px;
+  background-color: var(--secondarycolor);
+  height: 96px;
+  width: 100%;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--main-backgroundcolor);
+  position: fixed;
+  z-index: 2;
 }
 header > div {
   font-size: 24px;
@@ -33,14 +40,297 @@ header > ul {
   align-items: center;
 }
 header > ul > li {
-  width: 96px;
+  width: 120px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.7s ease;
 }
 .navigation > li > a {
-  color: white;
+  color: var(--main-backgroundcolor);
   text-decoration: none;
   font-size: 16px;
+  cursor: default;
+}
+.navigation > li:hover {
+  background-color: rgb(211, 251, 216, 0.5);
+  border-radius: 8px;
+}
+.personal {
+  height: 90vh;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+}
+.personal > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  line-height: 16px;
+  color: var(--tercolor01);
+  cursor: default;
+}
+.info > .name > h3 {
+  font-size: 48px;
+}
+.info > .name h1 {
+  font-size: 88px;
+}
+.info > h2 {
+  font-size: 24px;
+}
+.info > p {
+  font-size: 16px;
+  font-weight: 400;
+}
+.name {
+  line-height: 56px;
+  margin-bottom: 8px;
+}
+.self {
+  height: 100%;
+  width: 100%;
+  /* margin-bottom: 56px; */
+  filter: brightness(80%) drop-shadow(5px 5px 5px black);
+  transition: all 0.7s ease;
+}
+.self:hover {
+  filter: brightness(90%) drop-shadow(16px 16px 8px var(--secondarycolor))
+    drop-shadow(-16px -16px 8px var(--secondarycolor));
+}
+.selfimage {
+  /* padding: 32px 0px; */
+  height: 400px;
+}
+.direct {
+  height: 96px;
+}
+
+/* projects */
+.projects {
+  padding: 16px 16px 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.intro-wrap > h1 {
+  font-size: 40px;
+  color: var(--tercolor01);
+}
+.project-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.project-wrap > .project {
+  height: 400px;
+  width: 320px;
+  min-width: 96px;
+  max-width: 400px;
+  border-radius: 8px;
+  transition: all 0.8s ease;
+}
+.visit {
+  background-color: rgb(211, 251, 216, 0.9);
+  height: 0;
+  visibility: hidden;
+  transition: all 0.8s ease;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.visit h1,
+.visit a {
+  transition: all 0.3s ease 0.2s;
+  visibility: hidden;
+}
+.visit > h1 {
+  color: var(--main-backgroundcolor);
+}
+.visit > a {
+  text-decoration: none;
+  color: var(--main-backgroundcolor);
+}
+.project:hover {
+  box-shadow: 8px 8px 0px var(--tercolor02);
+}
+.project:hover > .visit {
+  height: 100%;
+  visibility: visible;
+}
+.project:hover > .visit > h1 {
+  visibility: visible;
+}
+.project:hover > .visit > a {
+  visibility: visible;
+}
+.project1 {
+  background-image: url(images/amazonproject.svg);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.project2 {
+  background-image: url(images/volleyball\ login\ form.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.project3 {
+  background-image: url(images/eportblog.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* skills */
+.skills {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.skills > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 102px;
+}
+
+.img-wrapper {
+  height: 120px;
+  width: 120px;
+}
+.img-wrapper > img {
+  height: 100%;
+  width: 100%;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
+  animation: spinimg 5s ease 0s infinite;
+}
+.skills::before {
+  content: "Skills";
+  font-size: 40px;
+  color: var(--tercolor01);
+}
+@keyframes spinimg {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* education */
+.education {
+  color: var(--tercolor01);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 16px;
+  gap: 96px;
+  justify-content: center;
+  align-items: center;
+}
+.education::before {
+  content: "Education";
+  font-size: 40px;
+  color: var(--tercolor01);
+  align-self: flex-start;
+  text-shadow: 0 0 50px blue, 0 0 100px blue, 0 0 150px blue;
+}
+.education > div {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: center;
+}
+.education > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer {
+  background-color: var(--secondarycolor);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  position: fixed;
+  bottom: 50%;
+  right: 0;
+  padding: 16px 8px;
+}
+footer > .socmed {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 96px;
+  width: 48px;
+  align-items: center;
+}
+.socmed > li > a {
+  color: white;
+  /* text-shadow: 0 0 50px blue, 0 0 100px blue, 0 0 150px blue; */
+}
+.socmed > li > a :hover {
+  font-size: 200%;
+}
+.fa-facebook,
+.fa-square-instagram,
+.fa-github {
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 700px) {
+  .personal {
+    display: block;
+    height: fit-content;
+  }
+  .personal > div {
+    width: 100%;
+    line-height: 24px;
+  }
+  .name {
+    line-height: 48px;
+  }
+  .info > .name > h3 {
+    font-size: 24px;
+  }
+  .info > .name h1 {
+    font-size: 56px;
+  }
+  .info > h2 {
+    font-size: 24px;
+  }
+  .info > p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .education > div {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+.foot {
+  border-top: 1px solid rgb(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  justify-content: center;
+  align-items: center;
+}
+.foot > div {
+  font-size: 40px;
+  color: var(--tercolor01);
 }
