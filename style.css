@@ -247,7 +247,6 @@ header > ul > li {
   font-size: 40px;
   color: var(--tercolor01);
   align-self: flex-start;
-  text-shadow: 0 0 50px blue, 0 0 100px blue, 0 0 150px blue;
 }
 .education > div {
   width: 50%;
@@ -266,7 +265,7 @@ footer {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   position: fixed;
-  bottom: 50%;
+  bottom: 16%;
   right: 0;
   padding: 16px 8px;
 }
@@ -275,8 +274,8 @@ footer > .socmed {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 96px;
-  width: 48px;
+  height: 102px;
+  width: 32px;
   align-items: center;
 }
 .socmed > li > a {
@@ -290,6 +289,44 @@ footer > .socmed {
 .fa-square-instagram,
 .fa-github {
   transition: all 0.5s ease;
+}
+a {
+  text-decoration: none;
+}
+/* dropdown */
+.burger {
+  display: none;
+}
+.dropdownmenu {
+  position: fixed;
+  top: 96px;
+  z-index: 3;
+  background-color: var(--tercolor01);
+  width: 100%;
+  height: 0px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: all 0.7s ease;
+  padding: 0px;
+}
+.dropdownmenuactive {
+  height: 160px;
+  padding: 16px;
+}
+.dropdownmenu > ul {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.dropdownmenu > ul > li > a {
+  color: var(--main-backgroundcolor);
 }
 
 @media (max-width: 700px) {
@@ -321,6 +358,12 @@ footer > .socmed {
     width: 100%;
     font-size: 16px;
   }
+  .navigation {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
 }
 .foot {
   border-top: 1px solid rgb(255, 255, 255, 0.5);
@@ -334,3 +377,5 @@ footer > .socmed {
   font-size: 40px;
   color: var(--tercolor01);
 }
+
+/* dropdownarea */
